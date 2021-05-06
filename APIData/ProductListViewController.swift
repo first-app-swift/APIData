@@ -25,11 +25,12 @@ extension UIImageView {
    }
 }
 var loginData : LoginDetails?
-var changeProductData : Item?
+var changeProductData : Product?
 
 class ProductListViewController: UIViewController, UICollectionViewDelegate {
     
     @IBOutlet weak var collectionView: UICollectionView!
+    let dataChecker = DatabaseHelper()
     
     var responseData : ResponseItems?
     var objApi = ApiUtilities()
@@ -67,17 +68,9 @@ class ProductListViewController: UIViewController, UICollectionViewDelegate {
                     self.collectionView.reloadData()
               }
             }
-        }
-    func doSomethingAfterCall(data: Item)
-    
-    {
-        var newData = data
-        let clickedData = newData.hasFavorite ?? false
-        newData.hasFavorite = !(clickedData)
-//        self.collectionView.reloadData()
     }
-    
-        
+   
+   
     }
     
 
@@ -105,18 +98,29 @@ extension  ProductListViewController: UICollectionViewDataSource
         
         cell.favButton.setImage(UIImage(named: "fav_star"), for: .normal)
         
-        return cell
+//        cell.favButton.addTarget(self, action: #selector(onTapChange), for: .touchUpOutside)
+       
+       
+//            if let productId = self.responseData?.items.items[indexPath.row].id
+//            {
+//                dataChecker.saveProduct(productId: productId)
+//            }
+       
+    return cell
     }
+    
+   
     // MARK:-  ProductViewScreeData
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         
-        let dataPassing = storyboard?.instantiateViewController(identifier: "ProductViewController") as? ProductDetailViewController
-        dataPassing?.link = self
-        dataPassing?.responseItem = (self.responseData?.items.items[indexPath.row])!
-        self.navigationController?.pushViewController(dataPassing!, animated: true)
+        let dataSending = storyboard?.instantiateViewController(identifier: "ProductViewController") as? ProductDetailViewController
+        dataSending?.link = self
+        dataSending?.responseItem = (self.responseData?.items.items[indexPath.row])!
+        self.navigationController?.pushViewController(dataSending!, animated: true)
     }
     
 }
+
 
 
 

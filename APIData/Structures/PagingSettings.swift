@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+struct PagingSettings: Codable {
+    let skip: Int
+    let take: Int
+    enum CodingKeys: String, CodingKey {
+        case skip = "Skip"
+        case take = "Take"
+    }
+}

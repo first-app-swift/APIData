@@ -26,34 +26,37 @@ extension UIImageView {
 class ProductDetailViewController: UIViewController {
     let dataHlper = DatabaseHelper()
     let userDefaults = UserDefaults.standard
-    var link : ViewController?
+    var link : ProductListViewController?
     var objDetails = ProductDetails()
-    var responseItem : Item?
-    var responseItemDetails: Item?
-    @IBOutlet weak var detailsLbl: UILabel!
+    var responseItem : Product?
+    var responseItemDetails: Product?
+   
+    @IBOutlet weak var descLbl: UILabel!
     
-    @IBOutlet weak var imgLbl: UIImageView!
-    
-    @IBOutlet weak var skuLbl: UILabel!
+    @IBOutlet weak var productWeight: UILabel!
+    @IBOutlet weak var productName: UILabel!
+    @IBOutlet weak var favButton: UIButton!
+    @IBOutlet weak var orignalPrice: UILabel!
     @IBOutlet weak var priceLbl: UILabel!
-    @IBOutlet weak var descriptionLbl: UILabel!
-    @IBOutlet weak var orignalPriceLbl: UILabel!
-    
-    @IBOutlet weak var favBuotton: UIButton!
+    @IBOutlet weak var skuLbl: UILabel!
+    @IBOutlet weak var imageViewLbl: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         requestData()
         changeButtonOnClick()
-        skuLbl.text = self.responseItemDetails?.sku
-        descriptionLbl.text = responseItemDetails?.description
+
+        
+//        skuLbl.text = self.responseItemDetails?.sku
+//        descriptionLbl.text = responseItemDetails?.description
+     
         
         guard let url  = URL(string: (self.responseItem?.thumbnail.medium)!)
         else{
             return
         }
-        self.imgLbl.downloadImage1(from: url)
-        favBuotton.setImage(UIImage(named: "fav_star"), for: .normal)
-        favBuotton.addTarget(self, action: #selector(onMarkAsFavorite), for: .touchUpInside)
+        self.imageViewLbl .downloadImage1(from: url)
+        favButton.setImage(UIImage(named: "fav_star"), for: .normal)
+        favButton.addTarget(self, action: #selector(onMarkAsFavorite), for: .touchUpInside)
     }
     
     func changeButtonOnClick()
@@ -62,24 +65,22 @@ class ProductDetailViewController: UIViewController {
         {
           if let _ = dataHlper.getProductBy(productId: productId)
           {
-            self.favBuotton.tintColor = .blue
+            self.favButton.tintColor = .blue
           }
             else
           {
-            self.favBuotton.tintColor = .gray
+            self.favButton.tintColor = .gray
           }
         }
         else
         {
-            self.favBuotton.tintColor = .gray
+            self.favButton.tintColor = .gray
         }
     
     }
     
     @objc func onMarkAsFavorite()
     {
-       
-       link?.doSomethingAfterCall(data: responseItem!)
         
         if let productId = responseItem?.id
         {
@@ -90,14 +91,16 @@ class ProductDetailViewController: UIViewController {
     
     func requestData()
     {
-        objDetails.productDetails(id: responseItem!.id, resultType: Item.self) { [self]
+        objDetails.productDetails(id: responseItem!.id, resultType: Product?.self) { [self]
             (responseData) in
             DispatchQueue.main.async {
                 self.responseItemDetails = responseData
-                skuLbl.text = self.responseItemDetails?.sku
-                priceLbl.text = String(self.responseItemDetails!.price)
-                orignalPriceLbl.text = String(self.responseItemDetails!.originalPrice)
-                descriptionLbl.text = responseItemDetails?.description
+                skuLbl.text = "SKU : " + self.responseItemDetails!.sku
+                priceLbl.text = "price : " + String(self.responseItemDetails!.price)
+                orignalPrice.text = "orignalPrie : " + String(self.responseItemDetails!.originalPrice)
+                descLbl.text = "Description : " + self.responseItemDetails!.description
+                productName.text = "Name : " + self.responseItemDetails!.name
+                productWeight.text = "Weight : " + String(self.responseItemDetails!.weight!)
                 
             }
             

@@ -9,11 +9,11 @@ import Foundation
 enum RequestURL: String{
     case login = "https://www.pngadgil1832.com/rest/api/v1/authenticateAnonymousUser"
     case products = "https://www.pngadgil1832.com/rest/api/v1/search/60fe6317-f9fd-4356-bffb-a294029f2654/facetedSearchV2?take=10&skip=0&categorytype=Catalog"
+   case productDetails = "https://www.pngadgil1832.com/rest/api/v1/items/"
 }
 
 class ApiUtilities
  {
-    var responseData = [ResponseItems]()
     func postApiData<T:Codable>(requestUrl : URL, resultType: T.Type, completionHandler:@escaping(_ result: T)-> Void)
     {
         var request = URLRequest(url: requestUrl)
@@ -49,8 +49,6 @@ class ApiUtilities
             do{
                 let productData = try  decoder.decode(ResponseItems.self, from : jsonData)
                 _=completionHandler(productData as! T)
-                self.responseData = [productData]
-             
             }catch{
                 print(error)
             }
