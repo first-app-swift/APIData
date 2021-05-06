@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import CoreData
+//MARK:- URLData to Image
 extension UIImageView {
    func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
       URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
@@ -22,10 +24,13 @@ extension UIImageView {
       }
    }
 }
+var loginData : LoginDetails?
+var changeProductData : Item?
 
-class ViewController: UIViewController, UICollectionViewDelegate {
+class ProductListViewController: UIViewController, UICollectionViewDelegate {
     
     @IBOutlet weak var collectionView: UICollectionView!
+    
     var responseData : ResponseItems?
     var objApi = ApiUtilities()
     override func viewDidLoad() {
@@ -42,9 +47,13 @@ class ViewController: UIViewController, UICollectionViewDelegate {
         let registerURL = URL(string: RequestURL.login.rawValue)
         objApi.postApiData(requestUrl: registerURL!, resultType: LoginDetails.self) { (loginDetails) in
                 self.getProducts(loginDetails: loginDetails.accessToken)
-            }
+            
+            loginData = loginDetails
+            
+        }
 
     }
+//MARK:- GetProducts
     func getProducts(loginDetails: String)
     {
         let tokenData = loginDetails
@@ -59,13 +68,22 @@ class ViewController: UIViewController, UICollectionViewDelegate {
               }
             }
         }
+    func doSomethingAfterCall(data: Item)
+    
+    {
+        var newData = data
+        let clickedData = newData.hasFavorite ?? false
+        newData.hasFavorite = !(clickedData)
+//        self.collectionView.reloadData()
+    }
+    
         
     }
     
 
 
-
-extension  ViewController: UICollectionViewDataSource
+//MARK:- Extension of dataSource
+extension  ProductListViewController: UICollectionViewDataSource
 {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if let count = self.responseData?.items.items.count{
@@ -74,8 +92,9 @@ extension  ViewController: UICollectionViewDataSource
         return 0
         
     }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)  as! ProductDetailsViews
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)  as! ProductCell
         if let data = self.responseData?.items.items[indexPath.row].name {
             cell.productLbl.text = data
         }
@@ -83,15 +102,23 @@ extension  ViewController: UICollectionViewDataSource
         {
         cell.productImageView.downloadImage(from: imageURL)
         }
+        
+        cell.favButton.setImage(UIImage(named: "fav_star"), for: .normal)
+        
         return cell
+    }
+    // MARK:-  ProductViewScreeData
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        
+        let dataPassing = storyboard?.instantiateViewController(identifier: "ProductViewController") as? ProductDetailViewController
+        dataPassing?.link = self
+        dataPassing?.responseItem = (self.responseData?.items.items[indexPath.row])!
+        self.navigationController?.pushViewController(dataPassing!, animated: true)
     }
     
 }
-//extension ViewController: UICollectionViewDelegateFlowLayout {
-//    func collectionView(_ collectionView: UICollectionView, layoutcollectionViewLayout: UICollectionViewLayout, sizeForItemAtindexPath: IndexPath) -> CGSize {
-//        return CGSize(width: 100, height: 200)
-//    }
-//}
+
+
 
 
 
