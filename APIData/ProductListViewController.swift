@@ -98,13 +98,22 @@ extension  ProductListViewController: UICollectionViewDataSource
         
         cell.favButton.setImage(UIImage(named: "fav_star"), for: .normal)
         
-//        cell.favButton.addTarget(self, action: #selector(onTapChange), for: .touchUpOutside)
        
-       
-//            if let productId = self.responseData?.items.items[indexPath.row].id
-//            {
-//                dataChecker.saveProduct(productId: productId)
-//            }
+          if let productId = self.responseData?.items.items[indexPath.row].id
+          {
+              if let _ = dataChecker.getProductBy(productId: productId)
+              {
+                cell.favButton.tintColor = .blue
+              }
+                else
+              {
+                cell.favButton.tintColor = .gray
+              }
+            }
+            else
+            {
+                cell.favButton.tintColor = .gray
+            }
        
     return cell
     }

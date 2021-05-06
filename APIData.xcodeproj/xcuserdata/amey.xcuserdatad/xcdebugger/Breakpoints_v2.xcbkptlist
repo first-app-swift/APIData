@@ -14,10 +14,10 @@
             filePath = "APIData/ProductListViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
-            landmarkName = "onTapChange()"
-            landmarkType = "9">
+            startingLineNumber = "121"
+            endingLineNumber = "121"
+            landmarkName = "ProductListViewController"
+            landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
