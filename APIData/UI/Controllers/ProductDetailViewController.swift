@@ -44,12 +44,6 @@ class ProductDetailViewController: UIViewController {
         super.viewDidLoad()
         requestData()
         changeButtonOnClick()
-
-        
-//        skuLbl.text = self.responseItemDetails?.sku
-//        descriptionLbl.text = responseItemDetails?.description
-     
-        
         guard let url  = URL(string: (self.responseItem?.thumbnail.medium)!)
         else{
             return

@@ -21,7 +21,7 @@ struct Product: Codable {
     let addedToWishListCount: Int?
     let thumbnail : Thumbnail
     let pictures : Pictures?
-    let displayPicture : DisplayPictures?
+    let displayPicture : [DisplayPictures]?
     let materials : Materials
     let relatedCatlogItems : RelatedCatlogItems?
     let attributes : Attributes?

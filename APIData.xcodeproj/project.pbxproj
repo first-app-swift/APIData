@@ -86,8 +86,6 @@
 		9D7344FC26396EE80093BCA6 = {
 			isa = PBXGroup;
 			children = (
-				9D7924FA2642CBD4002AA020 /* FavoriteProduct+CoreDataClass.swift */,
-				9D7924FB2642CBD4002AA020 /* FavoriteProduct+CoreDataProperties.swift */,
 				9D73450726396EE80093BCA6 /* APIData */,
 				9D73450626396EE80093BCA6 /* Products */,
 			);
@@ -104,14 +102,12 @@
 		9D73450726396EE80093BCA6 /* APIData */ = {
 			isa = PBXGroup;
 			children = (
+				9DF10D4426450F8D00469707 /* UI */,
+				9DF10D4226450F4600469707 /* Modles */,
+				9DF10D3A2645029600469707 /* CoreData */,
 				9DDFA77C263FBFCB00602E0B /* APIUtilites */,
-				9D73452026398AFD0093BCA6 /* Structures */,
 				9D73450826396EE80093BCA6 /* AppDelegate.swift */,
-				9D09B99E26404AE900FA72D0 /* ProductCell.swift */,
-				9DE6176D264107D4009C3026 /* ProductDetailViewController.swift */,
-				9D7924C92642AE35002AA020 /* DatabaseHelper.swift */,
 				9D73450A26396EE80093BCA6 /* SceneDelegate.swift */,
-				9D73450C26396EE80093BCA6 /* ProductListViewController.swift */,
 				9D73450E26396EE80093BCA6 /* Main.storyboard */,
 				9D73451426396EEC0093BCA6 /* Assets.xcassets */,
 				9D73451626396EEC0093BCA6 /* LaunchScreen.storyboard */,
@@ -121,7 +117,25 @@
 			path = APIData;
 			sourceTree = "<group>";
 		};
-		9D73452026398AFD0093BCA6 /* Structures */ = {
+		9DDFA77C263FBFCB00602E0B /* APIUtilites */ = {
+			isa = PBXGroup;
+			children = (
+				9D757B46263A662B0061DD9A /* APIUtilities.swift */,
+				9DE6177126415A0D009C3026 /* GetProductDetails.swift */,
+			);
+			path = APIUtilites;
+			sourceTree = "<group>";
+		};
+		9DF10D3A2645029600469707 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				9DF10D4826450FDA00469707 /* Modles */,
+				9DF10D4726450FCD00469707 /* DataHelper */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		9DF10D4226450F4600469707 /* Modles */ = {
 			isa = PBXGroup;
 			children = (
 				9D73452A26398ED20093BCA6 /* LoginDetails.swift */,
@@ -129,8 +143,8 @@
 				9D775CE7263BC84E00E7CDB2 /* ResponseItems.swift */,
 				9D7924D02642C041002AA020 /* Items.swift */,
 				9D7924D32642C07C002AA020 /* PagingSettings.swift */,
-				9D7924D62642C0C2002AA020 /* Product.swift */,
 				9D7924D92642C187002AA020 /* Catalog.swift */,
+				9D7924D62642C0C2002AA020 /* Product.swift */,
 				9D7924DC2642C27A002AA020 /* Thumbnail.swift */,
 				9D7924DF2642C2A7002AA020 /* Pictures.swift */,
 				9D7924E22642C2C5002AA020 /* DisplayPictures.swift */,
@@ -140,16 +154,50 @@
 				9D7924F22642C357002AA020 /* Tags.swift */,
 				9D7924F52642C36D002AA020 /* Stores.swift */,
 			);
-			path = Structures;
+			path = Modles;
 			sourceTree = "<group>";
 		};
-		9DDFA77C263FBFCB00602E0B /* APIUtilites */ = {
+		9DF10D4426450F8D00469707 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				9D757B46263A662B0061DD9A /* APIUtilities.swift */,
-				9DE6177126415A0D009C3026 /* GetProductDetails.swift */,
+				9DF10D4526450F9500469707 /* Cells */,
+				9DF10D4626450FB200469707 /* Controllers */,
 			);
-			path = APIUtilites;
+			path = UI;
+			sourceTree = "<group>";
+		};
+		9DF10D4526450F9500469707 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				9D09B99E26404AE900FA72D0 /* ProductCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		9DF10D4626450FB200469707 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9DE6176D264107D4009C3026 /* ProductDetailViewController.swift */,
+				9D73450C26396EE80093BCA6 /* ProductListViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		9DF10D4726450FCD00469707 /* DataHelper */ = {
+			isa = PBXGroup;
+			children = (
+				9D7924C92642AE35002AA020 /* DatabaseHelper.swift */,
+			);
+			path = DataHelper;
+			sourceTree = "<group>";
+		};
+		9DF10D4826450FDA00469707 /* Modles */ = {
+			isa = PBXGroup;
+			children = (
+				9D7924FB2642CBD4002AA020 /* FavoriteProduct+CoreDataProperties.swift */,
+				9D7924FA2642CBD4002AA020 /* FavoriteProduct+CoreDataClass.swift */,
+			);
+			path = Modles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
