@@ -138,18 +138,9 @@
 		9DF10D4426450F8D00469707 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				9DF10D4B264558C500469707 /* CustomeView */,
-				9DF10D4526450F9500469707 /* Cells */,
 				9DF10D4626450FB200469707 /* Controllers */,
 			);
 			path = UI;
-			sourceTree = "<group>";
-		};
-		9DF10D4526450F9500469707 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Cells;
 			sourceTree = "<group>";
 		};
 		9DF10D4626450FB200469707 /* Controllers */ = {
@@ -176,13 +167,6 @@
 				9D09B99E26404AE900FA72D0 /* ProductCell.swift */,
 			);
 			name = ProductList;
-			sourceTree = "<group>";
-		};
-		9DF10D4B264558C500469707 /* CustomeView */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = CustomeView;
 			sourceTree = "<group>";
 		};
 		9DF10D4D2645606600469707 /* API */ = {

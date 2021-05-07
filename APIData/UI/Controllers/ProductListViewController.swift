@@ -54,6 +54,7 @@ class ProductListViewController: UIViewController, UICollectionViewDelegate {
             self.getProducts(loginDetails: loginDetails.accessToken)
                loginData = loginDetails
         }
+       
         
     }
     //MARK:- GetProducts
@@ -113,6 +114,12 @@ extension  ProductListViewController: UICollectionViewDataSource
         return cell
     }
     
+//    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+//        collectionView.collectionViewLayout.invalidateLayout()
+//
+//        let indexPath = IndexPath(item: UIPageControl, section: 0)
+//    }
+    
     
     // MARK:-  ProductViewScreeData
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
@@ -122,6 +129,12 @@ extension  ProductListViewController: UICollectionViewDataSource
         vc?.responseItem = (self.responseData?.items.items[indexPath.row])!
         self.navigationController?.pushViewController(vc!, animated: true)
         
+        func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
+            vc?.scrollView.contentSize = (vc?.contentView.bounds.size)!;
         }
+        
+        }
+   
+   
     
 }

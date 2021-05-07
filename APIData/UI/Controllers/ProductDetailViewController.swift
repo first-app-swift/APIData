@@ -33,6 +33,8 @@ class ProductDetailViewController: UIViewController {
    
     @IBOutlet weak var descLbl: UILabel!
     
+    @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var productWeight: UILabel!
     @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var favButton: UIButton!
@@ -52,6 +54,7 @@ class ProductDetailViewController: UIViewController {
         favButton.setImage(UIImage(named: "fav_star"), for: .normal)
         favButton.addTarget(self, action: #selector(onMarkAsFavorite), for: .touchUpInside)
     }
+    
     
     func changeButtonOnClick()
     {
