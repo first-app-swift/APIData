@@ -22,7 +22,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="9lZ-VW-jQ3">
                                     <size key="itemSize" width="166" height="194"/>
-                                    <size key="estimatedItemSize" width="166" height="194"/>
+                                    <size key="estimatedItemSize" width="166" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
@@ -105,7 +105,7 @@
             <objects>
                 <viewController storyboardIdentifier="ProductViewController" id="WXa-CA-kXe" customClass="ProductDetailViewController" customModule="APIData" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QyU-IH-vDb">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="1230"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="900"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cLF-Uw-3hw">
@@ -248,7 +248,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Details" id="Llo-GJ-MVe"/>
-                    <size key="freeformSize" width="414" height="1230"/>
+                    <size key="freeformSize" width="414" height="900"/>
                     <connections>
                         <outlet property="descLbl" destination="xot-SR-i8V" id="HxD-An-nlS"/>
                         <outlet property="favButton" destination="kLs-JR-xeG" id="OWa-5O-zBe"/>

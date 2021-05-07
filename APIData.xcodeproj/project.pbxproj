@@ -102,8 +102,8 @@
 		9D73450726396EE80093BCA6 /* APIData */ = {
 			isa = PBXGroup;
 			children = (
+				9DF10D4D2645606600469707 /* API */,
 				9DF10D4426450F8D00469707 /* UI */,
-				9DF10D4226450F4600469707 /* Modles */,
 				9DF10D3A2645029600469707 /* CoreData */,
 				9DDFA77C263FBFCB00602E0B /* APIUtilites */,
 				9D73450826396EE80093BCA6 /* AppDelegate.swift */,
@@ -129,13 +129,71 @@
 		9DF10D3A2645029600469707 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				9DF10D4826450FDA00469707 /* Modles */,
+				9DF10D502645610E00469707 /* CoreDataModels */,
 				9DF10D4726450FCD00469707 /* DataHelper */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
 		};
-		9DF10D4226450F4600469707 /* Modles */ = {
+		9DF10D4426450F8D00469707 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				9DF10D4B264558C500469707 /* CustomeView */,
+				9DF10D4526450F9500469707 /* Cells */,
+				9DF10D4626450FB200469707 /* Controllers */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		9DF10D4526450F9500469707 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		9DF10D4626450FB200469707 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9DF10D4A2645587200469707 /* ProductList */,
+				9DE6176D264107D4009C3026 /* ProductDetailViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		9DF10D4726450FCD00469707 /* DataHelper */ = {
+			isa = PBXGroup;
+			children = (
+				9D7924C92642AE35002AA020 /* DatabaseHelper.swift */,
+			);
+			path = DataHelper;
+			sourceTree = "<group>";
+		};
+		9DF10D4A2645587200469707 /* ProductList */ = {
+			isa = PBXGroup;
+			children = (
+				9D73450C26396EE80093BCA6 /* ProductListViewController.swift */,
+				9D09B99E26404AE900FA72D0 /* ProductCell.swift */,
+			);
+			name = ProductList;
+			sourceTree = "<group>";
+		};
+		9DF10D4B264558C500469707 /* CustomeView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = CustomeView;
+			sourceTree = "<group>";
+		};
+		9DF10D4D2645606600469707 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				9DF10D4E2645606E00469707 /* APIModels */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		9DF10D4E2645606E00469707 /* APIModels */ = {
 			isa = PBXGroup;
 			children = (
 				9D73452A26398ED20093BCA6 /* LoginDetails.swift */,
@@ -154,50 +212,16 @@
 				9D7924F22642C357002AA020 /* Tags.swift */,
 				9D7924F52642C36D002AA020 /* Stores.swift */,
 			);
-			path = Modles;
+			name = APIModels;
 			sourceTree = "<group>";
 		};
-		9DF10D4426450F8D00469707 /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				9DF10D4526450F9500469707 /* Cells */,
-				9DF10D4626450FB200469707 /* Controllers */,
-			);
-			path = UI;
-			sourceTree = "<group>";
-		};
-		9DF10D4526450F9500469707 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				9D09B99E26404AE900FA72D0 /* ProductCell.swift */,
-			);
-			path = Cells;
-			sourceTree = "<group>";
-		};
-		9DF10D4626450FB200469707 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				9DE6176D264107D4009C3026 /* ProductDetailViewController.swift */,
-				9D73450C26396EE80093BCA6 /* ProductListViewController.swift */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		9DF10D4726450FCD00469707 /* DataHelper */ = {
-			isa = PBXGroup;
-			children = (
-				9D7924C92642AE35002AA020 /* DatabaseHelper.swift */,
-			);
-			path = DataHelper;
-			sourceTree = "<group>";
-		};
-		9DF10D4826450FDA00469707 /* Modles */ = {
+		9DF10D502645610E00469707 /* CoreDataModels */ = {
 			isa = PBXGroup;
 			children = (
 				9D7924FB2642CBD4002AA020 /* FavoriteProduct+CoreDataProperties.swift */,
 				9D7924FA2642CBD4002AA020 /* FavoriteProduct+CoreDataClass.swift */,
 			);
-			path = Modles;
+			path = CoreDataModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

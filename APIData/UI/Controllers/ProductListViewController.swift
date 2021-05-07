@@ -60,7 +60,7 @@ class ProductListViewController: UIViewController, UICollectionViewDelegate {
     func getProducts(loginDetails: String)
     {
         let tokenData = loginDetails
-        let responseURL = URL(string: RequestURL.products.rawValue )
+        let responseURL = URL(string: RequestURL.products.rawValue)
         let encoder = JSONEncoder()
         let parseData = ProductsRequestData(order: "Descending", orderBy: "ModifiedDate", facetsCriteria: [])
         let newData = try! encoder.encode(parseData)
